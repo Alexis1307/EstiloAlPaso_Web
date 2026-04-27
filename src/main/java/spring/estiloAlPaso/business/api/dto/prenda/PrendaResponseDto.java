@@ -1,0 +1,12 @@
+package spring.estiloAlPaso.business.api.dto.prenda;
+
+import spring.estiloAlPaso.business.data.entity.Prenda.EstadoPrenda;
+
+import java.math.BigDecimal;
+
+public record PrendaResponseDto(
+        String descripcion,
+        BigDecimal precioPagado,
+        BigDecimal precioTotal,
+        EstadoPrenda estado
+) {}
