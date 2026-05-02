@@ -56,7 +56,7 @@ public class EnvioController {
     @GetMapping("/cliente/{clienteId}")
     public ResponseEntity<List<EnvioResponseDto>> obtenerPorEstado(
             @PathVariable Integer clienteId,
-            @RequestParam EstadoEnvio estado
+            @RequestParam(required = false) EstadoEnvio estado
     ) {
         return ResponseEntity.ok(envioService.obtenerPorEstado(clienteId, estado));
     }

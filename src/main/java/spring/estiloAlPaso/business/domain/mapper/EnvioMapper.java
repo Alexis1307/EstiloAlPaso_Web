@@ -15,15 +15,15 @@ public interface EnvioMapper {
 
     @Mapping(target = "cantidadPrendas",
             expression = "java(envio.getPaquete().getPrendas().size())")
-
     @Mapping(target = "total", expression = "java(mapTotal(envio))")
     @Mapping(target = "pagado", expression = "java(mapPagado(envio))")
     @Mapping(target = "estadoCliente", expression = "java(mapEstadoCliente(envio))")
-
+    @Mapping(target = "estadoEnvio", source = "envio.estado")
     @Mapping(target = "usuarioTikTok", source = "paquete.cliente.usuarioTikTok")
     @Mapping(target = "nombreReal", source = "paquete.cliente.nombreReal")
     @Mapping(target = "telefono", source = "paquete.cliente.telefono")
     @Mapping(target = "direccion", source = "paquete.cliente.direccion")
+    @Mapping(target = "agencia", source = "paquete.cliente.agencia")
     @Mapping(target = "ciudad", source = "paquete.cliente.ciudad")
 
     @Mapping(target = "envioId", source = "id")

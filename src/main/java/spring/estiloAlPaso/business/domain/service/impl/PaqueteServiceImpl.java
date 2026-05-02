@@ -84,6 +84,7 @@ public class PaqueteServiceImpl implements PaqueteService {
         List<PrendaResponseDto> prendas = paquete.getPrendas()
                 .stream()
                 .map(p -> new PrendaResponseDto(
+                        p.getId(),
                         p.getDescripcion(),
                         p.getPrecioPagado(),
                         p.getPrecioTotal(),

@@ -12,6 +12,8 @@ import spring.estiloAlPaso.business.data.entity.Cliente.Cliente;
 @Mapper(componentModel = "spring")
 public interface ClienteMapper {
 
+    @Mapping(target = "ciudad", source = "cliente.ciudad")
+    @Mapping(target = "agencia", source = "cliente.agencia")
     @Mapping(target = "estado", ignore = true)
     ClienteListaResponseDto toListaDto(Cliente cliente);
 

@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import spring.estiloAlPaso.business.api.dto.cliente.*;
-import spring.estiloAlPaso.business.domain.service.impl.ClienteServiceImpl;
+import spring.estiloAlPaso.business.domain.service.ClienteService;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,7 +18,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class ClienteController {
 
-    private final ClienteServiceImpl clienteService;
+    private final ClienteService clienteService;
 
     @GetMapping
     public ResponseEntity<Page<ClienteListaResponseDto>> listarClientes(

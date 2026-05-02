@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>API EstiloAlPaso - Informe Final</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: white;
+            color: #1a1a1a;
+            margin: 0;
+            padding: 30px;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #333;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 26px;
+            letter-spacing: 1px;
+        }
+        /* Grid de 2 columnas */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            align-items: start;
+        }
+        /* Cada módulo como una tarjeta independiente */
+        .modulo {
+            border: 2px solid #222;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #ffffff;
+            margin-bottom: 20px; /* Espacio si hay varios en la misma columna */
+            box-shadow: 4px 4px 0px #eee;
+        }
+        .modulo-titulo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        .modulo-titulo::before {
+            content: "■";
+            margin-right: 10px;
+            font-size: 14px;
+        }
+        .endpoint {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            padding: 5px 0;
+        }
+        .metodo {
+            font-family: 'Consolas', monospace;
+            font-weight: 900;
+            width: 75px;
+            text-align: center;
+            padding: 4px 0;
+            border-radius: 4px;
+            margin-right: 15px;
+            font-size: 14px;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+        /* Colores solicitados con mejor contraste */
+        .get { color: #1e7e34; border: 2px solid #1e7e34; background: #f0fff4; }
+        .post { color: #0056b3; border: 2px solid #0056b3; background: #f0f7ff; }
+        .patch { color: #d97706; border: 2px solid #d97706; background: #fffdf0; }
+        .delete { color: #c82333; border: 2px solid #c82333; background: #fff5f5; }
+
+        .url-box {
+            display: flex;
+            flex-direction: column;
+        }
+        .url {
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 16px; /* Letra más grande para lectura fácil */
+            font-weight: 600;
+            color: #333;
+            word-break: break-all;
+        }
+        .desc {
+            color: #666;
+            font-size: 13px;
+            font-weight: 500;
+            margin-top: 2px;
+        }
+        /* Ubicación de Columnas */
+        .columna-izquierda { grid-column: 1; }
+        .columna-derecha { grid-column: 2; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>DOCUMENTACIÓN DE ENDPOINTS - ESTILO AL PASO</h1>
+</div>
+
+<div class="grid-container">
+
+    <div class="columna-izquierda">
+        <div class="modulo">
+            <div class="modulo-titulo">Clientes</div>
+            <div class="endpoint"><span class="metodo get">get</span><div class="url-box"><span class="url">/clientes?usuarioTiktok=carlos&telefono=98888</span><span class="desc">Filtro por cliente</span></div></div>
+            <div class="endpoint"><span class="metodo get">get</span><div class="url-box"><span class="url">/clientes/2</span><span class="desc">Obtener por ID</span></div></div>
+            <div class="endpoint"><span class="metodo post">post</span><div class="url-box"><span class="url">/clientes</span><span class="desc">Crear cliente</span></div></div>
+            <div class="endpoint"><span class="metodo patch">patch</span><div class="url-box"><span class="url">/clientes/2</span><span class="desc">Actualizar cliente</span></div></div>
+            <div class="endpoint"><span class="metodo delete">delete</span><div class="url-box"><span class="url">/clientes/2</span><span class="desc">Eliminar cliente</span></div></div>
+        </div>
+
+        <div class="modulo">
+            <div class="modulo-titulo">Envíos</div>
+            <div class="endpoint"><span class="metodo get">get</span><div class="url-box"><span class="url">/envios</span><span class="desc">Listar todos los envíos</span></div></div>
+            <div class="endpoint"><span class="metodo post">post</span><div class="url-box"><span class="url">/envios/cliete/2</span><span class="desc">Crear nuevo envío</span></div></div>
+            <div class="endpoint"><span class="metodo patch">patch</span><div class="url-box"><span class="url">/envios/5/cancelar</span><span class="desc">Cancelar pedido</span></div></div>
+            <div class="endpoint"><span class="metodo patch">patch</span><div class="url-box"><span class="url">/envios/4/enviar</span><span class="desc">Confirmar despacho</span></div></div>
+            <div class="endpoint"><span class="metodo post">post</span><div class="url-box"><span class="url">/envios/clave-lote</span><span class="desc">Generación masiva de claves</span></div></div>
+            <div class="endpoint"><span class="metodo get">get</span><div class="url-box"><span class="url">/envios/exportar-excel?origen=381</span><span class="desc">Reporte Excel Shalom</span></div></div>
+            <div class="endpoint"><span class="metodo get">get</span><div class="url-box"><span class="url">/envios/cliente/2/pendiente</span><span class="desc">Verificar estado pendiente</span></div></div>
+            <div class="endpoint"><span class="metodo get">get</span><div class="url-box"><span class="url">/envios/cliente/2?estado=ENVIADO</span><span class="desc">Filtro por estado de entrega</span></div></div>
+        </div>
+    </div>
+
+    <div class="columna-derecha">
+        <div class="modulo">
+            <div class="modulo-titulo">Paquetes</div>
+            <div class="endpoint"><span class="metodo get">get</span><div class="url-box"><span class="url">/idcliente/paquetes</span><span class="desc">Listar paquetes del cliente</span></div></div>
+            <div class="endpoint"><span class="metodo get">get</span><div class="url-box"><span class="url">/paquetes/idpaquete</span><span class="desc">Ver detalle de bulto</span></div></div>
+        </div>
+
+        <div class="modulo">
+            <div class="modulo-titulo">Prendas</div>
+            <div class="endpoint"><span class="metodo post">post</span><div class="url-box"><span class="url">/prendas/registrar</span><span class="desc">Ingreso masivo de prendas</span></div></div>
+            <div class="endpoint"><span class="metodo get">get</span><div class="url-box"><span class="url">/prendas/11</span><span class="desc">Consultar prenda</span></div></div>
+            <div class="endpoint"><span class="metodo patch">patch</span><div class="url-box"><span class="url">/prendas/7</span><span class="desc">Editar datos de prenda</span></div></div>
+        </div>
+
+        <div class="modulo">
+            <div class="modulo-titulo">Agencias</div>
+            <div class="endpoint"><span class="metodo get">get</span><div class="url-box"><span class="url">/agencias/buscar?query=JOSE GALV</span><span class="desc">Buscador de sucursales</span></div></div>
+        </div>
+
+        <div class="modulo">
+            <div class="modulo-titulo">Seguridad y Usuarios</div>
+            <div class="endpoint"><span class="metodo post">post</span><div class="url-box"><span class="url">/auth/login</span><span class="desc">Autenticación de sistema</span></div></div>
+            <div class="endpoint"><span class="metodo post">post</span><div class="url-box"><span class="url">/usuarios</span><span class="desc">Registro de nuevo personal</span></div></div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

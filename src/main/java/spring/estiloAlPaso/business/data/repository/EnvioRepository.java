@@ -14,12 +14,10 @@ public interface EnvioRepository extends JpaRepository<Envio, Integer> {
 
     boolean existsByPaqueteIdAndEstado(Integer paqueteId, EstadoEnvio estado);
 
+    List<Envio> findAllByPaqueteClienteId(Integer clienteId);
+
     List<Envio> findByTipoEnvioAndEstado(TipoEnvio tipoEnvio, EstadoEnvio estado);
     boolean existsByClave(String clave);
-    List<Envio> findByTipoEnvioAndEstadoAndClaveIsNull(
-            TipoEnvio tipo,
-            EstadoEnvio estado
-    );
 
     Optional<Envio> findByPaqueteClienteIdAndEstado(Integer clienteId, EstadoEnvio estado);
 

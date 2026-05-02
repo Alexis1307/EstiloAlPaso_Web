@@ -17,14 +17,14 @@ public class PaqueteController {
 
     private final PaqueteService paqueteService;
 
-    @GetMapping("/{id}/paquetes")
+    @GetMapping("/{prendaId}/paquetes")
     public ResponseEntity<List<PaqueteResumenDto>> listarPaquetes(
             @PathVariable Integer id
     ) {
         return ResponseEntity.ok(paqueteService.listarPorCliente(id));
     }
 
-    @GetMapping("/paquetes/{id}")
+    @GetMapping("/paquetes/{prendaId}")
     public ResponseEntity<PaqueteDetalleDto> obtenerDetallePaquete(
             @PathVariable Integer id
     ) {

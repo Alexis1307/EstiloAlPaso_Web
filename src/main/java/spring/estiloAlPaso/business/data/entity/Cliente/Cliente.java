@@ -23,7 +23,7 @@ public class Cliente {
     private Integer id;
     private String nombreReal;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "usuario_tik_tok")
     private String usuarioTikTok;
 
     private String dni;

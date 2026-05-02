@@ -19,8 +19,6 @@ import spring.estiloAlPaso.security.service.JwtService;
 public class AuthServiceImpl implements AuthService {
 
     private final AuthenticationManager authenticationManager;
-    private final UsuarioRepository usuarioRepository;
-    private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
 
     public LoginResponseDto login(LoginRequestDto request) {
@@ -28,8 +26,8 @@ public class AuthServiceImpl implements AuthService {
 
         Authentication auth = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        request.usuario(),
-                        request.password()
+                        request.nombreUser(),
+                        request.passwordUser()
                 )
         );
 

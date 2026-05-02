@@ -26,7 +26,7 @@ public class UsuarioController {
         return ResponseEntity.ok(usuarioService.listar());
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{prendaId}")
     public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
         usuarioService.eliminar(id);
         return ResponseEntity.noContent().build();

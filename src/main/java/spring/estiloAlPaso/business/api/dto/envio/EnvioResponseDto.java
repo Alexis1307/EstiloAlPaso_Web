@@ -2,6 +2,7 @@ package spring.estiloAlPaso.business.api.dto.envio;
 
 import lombok.Builder;
 import spring.estiloAlPaso.business.api.dto.cliente.EstadoClienteLista;
+import spring.estiloAlPaso.business.data.entity.Agencia;
 import spring.estiloAlPaso.business.data.entity.Envio.EstadoEnvio;
 import spring.estiloAlPaso.business.data.entity.Envio.TipoEnvio;
 
@@ -17,6 +18,7 @@ public record EnvioResponseDto(
         String nombreReal,
         String telefono,
         String direccion,
+        Agencia agencia,
         String ciudad,
 
         Integer cantidadPrendas,

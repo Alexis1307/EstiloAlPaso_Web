@@ -179,11 +179,14 @@ public class EnvioServiceImpl implements EnvioService {
     @Transactional(readOnly = true)
     public List<EnvioResponseDto> obtenerPorEstado(Integer clienteId, EstadoEnvio estado) {
 
-        List<Envio> envios = envioRepository
-                .findAllByPaqueteClienteIdAndEstado(clienteId, estado);
+        List<Envio> envios;
 
-        if (envios.isEmpty()) {
-            throw new BusinessException("No hay envíos para ese estado");
+        if (estado != null) {
+            envios = envioRepository
+                    .findAllByPaqueteClienteIdAndEstado(clienteId, estado);
+        } else {
+            envios = envioRepository
+                    .findAllByPaqueteClienteId(clienteId);
         }
 
         return envios.stream()
@@ -233,9 +236,9 @@ public class EnvioServiceImpl implements EnvioService {
                         EstadoEnvio.PENDIENTE
                 );
 
-        if (envios.isEmpty()) {
+        /*if (envios.isEmpty()) {
             throw new BusinessException("No hay envíos pendientes para exportar");
-        }
+        }*/
 
         if (!List.of(196, 381).contains(origenId)) {
             throw new BusinessException("Agencia no válida como origen");

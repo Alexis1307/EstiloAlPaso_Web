@@ -69,7 +69,9 @@ public class ClienteServiceImpl implements ClienteService {
                             dto.id(),
                             dto.usuarioTikTok(),
                             dto.telefono(),
+                            dto.ciudad(),
                             dto.direccion(),
+                            dto.agencia(),
                             estado
                     );
                 });
@@ -98,6 +100,7 @@ public class ClienteServiceImpl implements ClienteService {
             List<PrendaResponseDto> prendas = paquete.getPrendas()
                     .stream()
                     .map(p -> new PrendaResponseDto(
+                            p.getId(),
                             p.getDescripcion(),
                             p.getPrecioPagado(),
                             p.getPrecioTotal(),
@@ -148,7 +151,7 @@ public class ClienteServiceImpl implements ClienteService {
         }
 
         if (clienteRepository.existsByUsuarioTikTok(usuarioTikTok)) {
-            throw new BusinessException("El usuario TikTok ya existe");
+            throw new BusinessException("El nombreUser TikTok ya existe");
         }
 
         if (clienteRepository.existsByTelefono(telefono)) {
@@ -192,7 +195,9 @@ public class ClienteServiceImpl implements ClienteService {
                 dto.id(),
                 dto.usuarioTikTok(),
                 dto.telefono(),
+                dto.ciudad(),
                 dto.direccion(),
+                dto.agencia(),
                 EstadoClienteLista.SIN_PRENDAS
         );
     }
@@ -212,7 +217,7 @@ public class ClienteServiceImpl implements ClienteService {
             String nuevo = request.usuarioTikTok().trim();
 
             if (clienteRepository.existsByUsuarioTikTokAndIdNot(nuevo, id)) {
-                throw new BusinessException("El usuario TikTok ya existe");
+                throw new BusinessException("El nombreUser TikTok ya existe");
             }
 
             cliente.setUsuarioTikTok(nuevo);

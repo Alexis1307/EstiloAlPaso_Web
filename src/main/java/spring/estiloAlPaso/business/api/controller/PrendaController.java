@@ -26,23 +26,23 @@ public class PrendaController {
                 .body(prendaService.registrarPrendas(request));
     }
 
-    @PatchMapping("/{id}")
+    @PatchMapping("/{prendaId}")
     public ResponseEntity<RegistrarPrendasResponseDto> actualizar(
-            @PathVariable Integer id,
+            @PathVariable("prendaId") Integer prendaId,
             @RequestBody ActualizarPrendaRequestDto request
     ) {
-        return ResponseEntity.ok(prendaService.actualizarPrenda(id, request));
+        return ResponseEntity.ok(prendaService.actualizarPrenda(prendaId, request));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{prendaId}")
     public ResponseEntity<RegistrarPrendasResponseDto> eliminar(
-            @PathVariable Integer id
+            @PathVariable("prendaId") Integer prendaId
     ) {
-        return ResponseEntity.ok(prendaService.eliminarPrenda(id));
+        return ResponseEntity.ok(prendaService.eliminarPrenda(prendaId));
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<PrendaResponseDto> obtener(@PathVariable Integer id) {
-        return ResponseEntity.ok(prendaService.obtenerPrenda(id));
+    @GetMapping("/{prendaId}")
+    public ResponseEntity<PrendaResponseDto> obtener(@PathVariable("prendaId") Integer prendaId) {
+        return ResponseEntity.ok(prendaService.obtenerPrenda(prendaId));
     }
 }

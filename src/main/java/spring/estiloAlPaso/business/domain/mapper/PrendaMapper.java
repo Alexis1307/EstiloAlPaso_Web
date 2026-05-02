@@ -11,6 +11,6 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface PrendaMapper {
-
+    @Mapping(target = "prendaId", source = "id")
     PrendaResponseDto toResponseDto(Prenda prenda);
 }
